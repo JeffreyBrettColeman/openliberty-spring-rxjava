@@ -1,5 +1,6 @@
 # openliberty-spring-rxjava
 
+This project is an example of Spring Reactive MongoDB working with RxJava extentions on IBM's Open Liberty Web Application Server.
 
 #Resources:
 
