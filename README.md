@@ -1,6 +1,5 @@
 # openliberty-spring-rxjava
 
-Sample project to test RxJava MongoDB configuration, cognitive complexity, and performance running IBM's OpenLiberty embedded Web Application Server.
 
 #Resources:
 
