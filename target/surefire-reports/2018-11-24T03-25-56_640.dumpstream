@@ -1,0 +1,6 @@
+# Created on 2018-11-24T03:25:56.640
+Error: Could not find or load main class org.apache.maven.surefire.booter.ForkedBooter
+
+# Created on 2018-11-24T03:25:56.640
+Caused by: java.lang.ClassNotFoundException: org.apache.maven.surefire.booter.ForkedBooter
+
