@@ -5,7 +5,7 @@ This project is an example of Spring Reactive MongoDB working with RxJava extent
 You will need to have a locally running mongodb server to run this with the Spring Mongodb Reactive default beans and properties.
 
 
-#Resources:
+Resources:
 
 -https://github.com/ReactiveX/RxJava
 
