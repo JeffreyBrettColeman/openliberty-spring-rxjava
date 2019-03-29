@@ -1,6 +1,7 @@
 package io.jbc.libertyrxjava.application;
 
 import java.time.Duration;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -54,8 +55,12 @@ public class DemoLibertyRxApplication extends AbstractReactiveMongoConfiguration
 	Flux<Object> events(@PathVariable("name") String name) {
 
 		return Flux.interval(Duration.ofSeconds(1))
-				.map(sequence -> ServerSentEvent.<String>builder().id(String.valueOf(sequence)).event("periodic-event")
-						.data(gson.toJson(accountReactiveRepository.findAll().blockingFirst())).build());
+				.map(sequence -> ServerSentEvent.<String>builder()
+						.id(String.valueOf(sequence))
+						.event("periodic-event")
+						.data(gson.toJson(
+								accountReactiveRepository.findByOwner(name)))
+						.build());
 	}
 
 	@GetMapping("/accountAdd")
