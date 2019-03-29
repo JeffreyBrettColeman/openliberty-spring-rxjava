@@ -4,4 +4,5 @@ mvnw
 mvnw.cmd
 .settings/*
 .springBeans/* 
-.project/*
+.project
+.classpath
