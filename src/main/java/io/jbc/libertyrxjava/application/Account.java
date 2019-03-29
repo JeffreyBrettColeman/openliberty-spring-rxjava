@@ -1,4 +1,4 @@
-package com.react.demo;
+package io.jbc.libertyrxjava.application;
 
 import java.util.Date;
 

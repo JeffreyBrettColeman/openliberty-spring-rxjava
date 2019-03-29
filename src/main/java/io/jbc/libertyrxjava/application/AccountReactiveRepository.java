@@ -1,4 +1,4 @@
-package com.react.demo;
+package io.jbc.libertyrxjava.application;
 
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import org.springframework.stereotype.Repository;
