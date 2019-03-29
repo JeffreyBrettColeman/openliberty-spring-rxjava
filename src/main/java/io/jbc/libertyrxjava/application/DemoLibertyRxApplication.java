@@ -11,15 +11,16 @@ import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRep
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import com.mongodb.ConnectionString;
 import com.mongodb.reactivestreams.client.MongoClient;
 import com.mongodb.reactivestreams.client.MongoClients;
 
 import io.netty.channel.nio.NioEventLoopGroup;
-import reactor.core.publisher.ConnectableFlux;
+import io.reactivex.Flowable;
+import io.reactivex.Single;
 import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 
 @SpringBootApplication
 @RestController
@@ -28,7 +29,7 @@ import reactor.core.publisher.Mono;
 public class DemoLibertyRxApplication extends AbstractReactiveMongoConfiguration {
 
 	@Autowired
-	AccountReactiveRepository accountReactiveRepository;
+	AccountRxJavaRepository accountReactiveRepository;
 
 	private NioEventLoopGroup eventLoopGroup = new NioEventLoopGroup();
 
@@ -53,15 +54,16 @@ public class DemoLibertyRxApplication extends AbstractReactiveMongoConfiguration
 		return MongoClients.create(mongoConnection);
 	}
 
-	@Tailable
-	@GetMapping("/accounts")
-	public Flux<Account> accounts() {
-		return accountReactiveRepository.findAll();
+	@GetMapping("/sse/accounts")
+	public SseEmitter rxAccounts() {
+		SseEmitter sseEmitter = new SseEmitter();
+		accountReactiveRepository.findAll().doOnNext(sseEmitter::send);
+		return sseEmitter;
 	}
-
+	
 	@GetMapping("/accountAdd")
-	public Mono<Account> accountAdd() {
-		return accountReactiveRepository.insert(new Account());
+	public Single<Account> accountAdd() {
+		return accountReactiveRepository.save(new Account());
 	}
 
 }

@@ -1,4 +1,7 @@
-.idea
+.idea/*
 target
 mvnw
 mvnw.cmd
+.settings/*
+.springBeans/* 
+.project/*
