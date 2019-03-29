@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>io.jbc.libertyrxjava</groupId>
+	<artifactId>openliberty-spring-rxjava</artifactId>
+	<version>0.0.1</version>
+	<packaging>jar</packaging>
+
+	<name>openliberty-spring-rxjava</name>
+	<description>Sample project to test RxJava MongoDB configuration, cognitive complexity, and performance running IBM's OpenLiberty embedded Web Application Server.</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.6.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<!-- BEGIN EXCLUDE TOMCAT -->
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+			</exclusions>
+			<!-- END EXCLUDE TOMCAT -->
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.openliberty.features/springBoot-2.0 -->
+		<dependency>
+			<groupId>io.openliberty.features</groupId>
+			<artifactId>springBoot-2.0</artifactId>
+			<version>19.0.0.2</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-mongodb -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-mongodb</artifactId>
+			<version>2.1.5.RELEASE</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>io.reactivex.rxjava2</groupId>
+			<artifactId>rxjava</artifactId>
+			<version>2.1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.reactivex</groupId>
+			<artifactId>rxjava-reactive-streams</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webflux</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.projectreactor</groupId>
+			<artifactId>reactor-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>io.openliberty.boost</groupId>
+				<artifactId>boost-maven-plugin</artifactId>
+				<version>0.1</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>package</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+
+</project>
