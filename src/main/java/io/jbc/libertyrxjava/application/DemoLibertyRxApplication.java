@@ -1,4 +1,4 @@
-package com.react.demo;
+package io.jbc.libertyrxjava.application;
 
 import javax.annotation.PreDestroy;
 
@@ -25,7 +25,7 @@ import reactor.core.publisher.Mono;
 @RestController
 @CrossOrigin
 @EnableReactiveMongoRepositories
-public class DemoApplication extends AbstractReactiveMongoConfiguration {
+public class DemoLibertyRxApplication extends AbstractReactiveMongoConfiguration {
 
 	@Autowired
 	AccountReactiveRepository accountReactiveRepository;
@@ -35,7 +35,7 @@ public class DemoApplication extends AbstractReactiveMongoConfiguration {
 	private final ConnectionString mongoConnection = new ConnectionString("mongodb://localhost:27017/test");
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(DemoLibertyRxApplication.class, args);
 	}
 
 	@PreDestroy
@@ -55,14 +55,13 @@ public class DemoApplication extends AbstractReactiveMongoConfiguration {
 
 	@Tailable
 	@GetMapping("/accounts")
-    public Flux<Account> accounts() {
+	public Flux<Account> accounts() {
 		return accountReactiveRepository.findAll();
 	}
-	
+
 	@GetMapping("/accountAdd")
-    public Mono<Account> accountAdd() {
+	public Mono<Account> accountAdd() {
 		return accountReactiveRepository.insert(new Account());
 	}
-
 
 }
