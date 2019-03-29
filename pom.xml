@@ -76,13 +76,14 @@
 		<dependency>
 			<groupId>de.flapdoodle.embed</groupId>
 			<artifactId>de.flapdoodle.embed.mongo</artifactId>
-			<scope>runtime</scope>
+			<scope>test</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
 		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/io.openliberty.boost/boost-bom -->
 		<dependency>
 			<groupId>io.openliberty.boost</groupId>
