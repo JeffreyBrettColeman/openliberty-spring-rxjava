@@ -2,6 +2,9 @@
 
 This project is an example of Spring Reactive MongoDB working with RxJava extentions on IBM's Open Liberty Web Application Server.
 
+You will need to have a locally running mongodb server to run this with the Spring Mongodb Reactive default beans and properties.
+
+
 #Resources:
 
 -https://github.com/ReactiveX/RxJava
