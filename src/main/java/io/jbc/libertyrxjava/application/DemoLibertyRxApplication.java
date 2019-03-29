@@ -17,6 +17,8 @@ import com.mongodb.reactivestreams.client.MongoClient;
 import com.mongodb.reactivestreams.client.MongoClients;
 
 import io.netty.channel.nio.NioEventLoopGroup;
+import io.reactivex.Flowable;
+import io.reactivex.Single;
 import reactor.core.publisher.ConnectableFlux;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -28,7 +30,7 @@ import reactor.core.publisher.Mono;
 public class DemoLibertyRxApplication extends AbstractReactiveMongoConfiguration {
 
 	@Autowired
-	AccountReactiveRepository accountReactiveRepository;
+	AccountRxJavaRepository accountReactiveRepository;
 
 	private NioEventLoopGroup eventLoopGroup = new NioEventLoopGroup();
 
@@ -55,13 +57,13 @@ public class DemoLibertyRxApplication extends AbstractReactiveMongoConfiguration
 
 	@Tailable
 	@GetMapping("/accounts")
-	public Flux<Account> accounts() {
+	public Flowable<Account> accounts() {
 		return accountReactiveRepository.findAll();
 	}
 
 	@GetMapping("/accountAdd")
-	public Mono<Account> accountAdd() {
-		return accountReactiveRepository.insert(new Account());
+	public Single<Account> accountAdd() {
+		return accountReactiveRepository.save(new Account());
 	}
 
 }

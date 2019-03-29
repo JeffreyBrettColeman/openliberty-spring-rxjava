@@ -1,20 +1,21 @@
 package io.jbc.libertyrxjava.application;
 
-import java.util.Date;
-
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
+@AllArgsConstructor
 @Document
 public class Account {
 
+
 	@Id
-	private ObjectId _id;
-	
-	private Date current;
+	private String id;
+	private String owner;
+	private Double value;
 }
