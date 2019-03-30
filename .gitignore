@@ -3,6 +3,7 @@ target
 mvnw
 mvnw.cmd
 .settings/*
-.springBeans/* 
+.springBeans/*
 .project
 .classpath
+.metadata/*

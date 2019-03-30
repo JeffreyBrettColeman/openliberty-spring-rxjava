@@ -23,6 +23,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<start-class>io.jbc.libertyrxjava.application.DemoLibertyRxApplication</start-class>
 	</properties>
 
 	<dependencies>
@@ -132,9 +133,8 @@
 				<version>0.1.1</version>
 				<executions>
 					<execution>
-						<phase>package</phase>
 						<goals>
-							<goal>package</goal>
+							<goal>docker-build</goal>
 						</goals>
 					</execution>
 				</executions>
