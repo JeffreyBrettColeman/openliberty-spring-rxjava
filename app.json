@@ -1,0 +1,18 @@
+{
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ],
+  "description": "Sample project to test RxJava MongoDB configuration, cognitive complexity, and performance running IBM's OpenLiberty",
+  "env": {
+  },
+  "formation": {
+  },
+  "name": "openliberty-spring-rxjava",
+  "scripts": {
+    "postdeploy": "mvn package install"
+  },
+  "stack": "heroku-18"
+}
