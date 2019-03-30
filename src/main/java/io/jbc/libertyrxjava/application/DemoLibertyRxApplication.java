@@ -59,7 +59,7 @@ public class DemoLibertyRxApplication extends AbstractReactiveMongoConfiguration
 						.id(String.valueOf(sequence))
 						.event("periodic-event")
 						.data(gson.toJson(
-								accountReactiveRepository.findByOwner(name)))
+								accountReactiveRepository.findByOwner(name).blockingGet()))
 						.build());
 	}
 
