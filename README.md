@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/JeffreyBrettColeman/openliberty-spring-rxjava.svg?branch=master)](https://travis-ci.com/JeffreyBrettColeman/openliberty-spring-rxjava)
+
 # openliberty-spring-rxjava
 
 This project is an example of Spring Reactive MongoDB working with RxJava extentions on IBM's Open Liberty Web Application Server.
