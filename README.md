@@ -1,8 +1,11 @@
 # openliberty-spring-rxjava
 
-Sample project to test RxJava MongoDB configuration, cognitive complexity, and performance running IBM's OpenLiberty embedded Web Application Server.
+This project is an example of Spring Reactive MongoDB working with RxJava extentions on IBM's Open Liberty Web Application Server.
 
-#Resources:
+You will need to have a locally running mongodb server to run this with the Spring Mongodb Reactive default beans and properties.
+
+
+Resources:
 
 -https://github.com/ReactiveX/RxJava
 
